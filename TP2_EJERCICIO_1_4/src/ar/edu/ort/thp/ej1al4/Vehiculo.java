@@ -1,6 +1,8 @@
 package ar.edu.ort.thp.ej1al4;
 
 public class Vehiculo {
+	final static int VELOCIDAD_MIN = 0;
+
 	private String color;
 	private String marca;
 	private String modelo;
@@ -43,11 +45,12 @@ public class Vehiculo {
 
 	public boolean acelerar(int incremento) {
 		boolean pudoAcelerar = false;
-		if (this.velocidadActual != this.velocidadMaxima) {
+
+		if (this.encendido && this.velocidadActual != this.velocidadMaxima) {
 			this.velocidadActual = this.velocidadActual + incremento;
 			if (this.velocidadActual > this.velocidadMaxima) {
 				this.velocidadActual = this.velocidadMaxima;
-			} 
+			}
 			pudoAcelerar = true;
 		} else {
 			System.out.println("ya no puedo acelerar mas de la maxima");
@@ -57,20 +60,17 @@ public class Vehiculo {
 	}
 
 	public boolean frenar(int decremento) {
-		int velovidadDecrementada;
 		boolean pudoFrenar = false;
 
-		if (this.velocidadActual != 0) {
-			velovidadDecrementada = this.velocidadActual - decremento;
-			if (velovidadDecrementada >= 0) {
-				this.velocidadActual = velovidadDecrementada;
-			} else {
-				this.velocidadActual = 0;
+		if (this.encendido && this.velocidadActual != VELOCIDAD_MIN) {
+			this.velocidadActual = this.velocidadActual - decremento;
+
+			if (this.velocidadActual < VELOCIDAD_MIN) {
+				this.velocidadActual = VELOCIDAD_MIN;
 			}
-			System.out.println("ahora su velocidad es: " + this.velocidadActual);
 			pudoFrenar = true;
 		} else {
-			System.out.println("el vehiculo ya esta detenido, no puede frenanr mas");
+			System.out.println("el vehiculo ya esta detenido, no puede frenar mas");
 
 		}
 
@@ -97,8 +97,8 @@ public class Vehiculo {
 	public void mostrar() {
 		System.out.println("marca y modelo: " + this.marca + " " + this.modelo);
 		System.out.println("color: " + this.color);
-		System.out.println("velocidad maxima: " + this.velocidadMaxima);
-		System.out.println("velocidad actual: " + this.velocidadActual);
+		System.out.println("velocidad maxima: " + this.velocidadMaxima + " km/h");
+		System.out.println("velocidad actual: " + this.velocidadActual + " km/h");
 		if (this.encendido) {
 			System.out.println("esta encendido");
 		} else {

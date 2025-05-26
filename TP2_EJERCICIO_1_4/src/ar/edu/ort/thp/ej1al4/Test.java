@@ -7,13 +7,21 @@ public class Test {
 
 	public static void main(String[] args) {
 
-		Persona persona1 = new Persona("carlos", "megia");
+		
+		Fecha fecha = new Fecha(1,1,2001);
+		Fecha fecha2 = new Fecha(1,1,2001);
+		
+		System.out.println(fecha);	
+		System.out.println(fecha2);	
+		
+		
+		/*Persona persona1 = new Persona("carlos", "megia");
 		Persona persona2 = new Persona("fernando", "tolaba", new Fecha(20, 06, 1988));
 
 		Vehiculo vehiculo1 = new Vehiculo();
 
 		Vehiculo vehiculo2 = new Vehiculo("negro", "fiat", "fiorino", 50, new Fecha(20, 05, 1997));
-		/*
+		
 		 * Persona persona3 = new Persona(); / persona1.setNombre("pedro");
 		 * persona1.setApellido("pascal");
 		 * 
@@ -23,7 +31,7 @@ public class Test {
 		 * 
 		 * 
 		 * persona2.mostrarNombreCompleto(); persona3.mostrarNombreCompleto();
-		 */
+		 
 
 		LocalDate fech = LocalDate.now();
 		persona1.mostrarPersona();
@@ -40,6 +48,7 @@ public class Test {
 
 		System.out.println();
 		System.out.println();
+		vehiculo2.encender();
 
 		vehiculo2.mostrar();
 		System.out.println();
@@ -77,6 +86,7 @@ public class Test {
 
 		
 		vehiculo2.mostrar();
+		*/
 
 	}
 
