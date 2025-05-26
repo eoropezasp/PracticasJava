@@ -43,18 +43,11 @@ public class Vehiculo {
 
 	public boolean acelerar(int incremento) {
 		boolean pudoAcelerar = false;
-		int velocidadIncrementada;
 		if (this.velocidadActual != this.velocidadMaxima) {
-			velocidadIncrementada = this.velocidadActual + incremento;
-			if (velocidadIncrementada <= this.velocidadMaxima) {
-				this.velocidadActual = velocidadIncrementada;
-
-			} else {
+			this.velocidadActual = this.velocidadActual + incremento;
+			if (this.velocidadActual > this.velocidadMaxima) {
 				this.velocidadActual = this.velocidadMaxima;
-
-			}
-			System.out.println("ahora su velocidad es: " + this.velocidadActual);
-
+			} 
 			pudoAcelerar = true;
 		} else {
 			System.out.println("ya no puedo acelerar mas de la maxima");
@@ -75,7 +68,7 @@ public class Vehiculo {
 				this.velocidadActual = 0;
 			}
 			System.out.println("ahora su velocidad es: " + this.velocidadActual);
-			pudoFrenar=true;
+			pudoFrenar = true;
 		} else {
 			System.out.println("el vehiculo ya esta detenido, no puede frenanr mas");
 
