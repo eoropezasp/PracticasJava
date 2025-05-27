@@ -5,8 +5,6 @@ public class Fecha {
 	private int dia;
 	private int mes;
 	private int anio;
-	
-	
 
 	public Fecha(int dia, int mes, int anio) {
 		this.dia = dia;
@@ -19,11 +17,6 @@ public class Fecha {
 		this.mes = 1;
 		this.anio = 1990;
 	}
-
-
-
-
-
 
 	public int getDia() {
 		return dia;
@@ -38,6 +31,12 @@ public class Fecha {
 	}
 
 	public void mostrar() {
-		System.out.println(this.dia + " / " + this.mes + " / " +this.anio);
+		System.out.println(this);
 	}
+
+	@Override
+	public String toString() {
+		return dia + " / " + mes + " / " + anio;
+	}
+
 }

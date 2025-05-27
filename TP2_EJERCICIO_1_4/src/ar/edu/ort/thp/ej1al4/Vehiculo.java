@@ -95,34 +95,40 @@ public class Vehiculo {
 	}
 
 	public void mostrar() {
-		System.out.println("marca y modelo: " + this.marca + " " + this.modelo);
-		System.out.println("color: " + this.color);
-		System.out.println("velocidad maxima: " + this.velocidadMaxima + " km/h");
-		System.out.println("velocidad actual: " + this.velocidadActual + " km/h");
+		System.out.println(this);
+	}
+
+	public String toString() {
+		String cadena;
+		cadena = "marca y modelo: " + this.marca + " " + this.modelo + "\n";
+		cadena += "color: " + this.color + "\n";
+		cadena += "velocidad maxima: " + this.velocidadMaxima + " km/h" + "\n";
+		cadena += "velocidad actual: " + this.velocidadActual + " km/h" + "\n";
 		if (this.encendido) {
-			System.out.println("esta encendido");
+			cadena += "esta encendido" + "\n";
 		} else {
-			System.out.println("esta apagado");
+			cadena += "esta apagado" + "\n";
 		}
-		/*
-		 * if (fechaFabricacion != null) { System.out.println("fecha de fabricacion: " +
-		 * this.getFechaDeFabricacion());
-		 * 
-		 * } else { System.out.println("no tiene fecha de fabricacion"); }
-		 */
+
 		if (fechaFabricacion != null) {
-			System.out.print("fecha de fabricacion: ");
-			this.fechaFabricacion.mostrar();
+			cadena += "fecha de fabricacion: ";
+			cadena += this.fechaFabricacion + "\n";
 		} else {
-			System.out.println("no tiene fecha de fabricacion registrada");
+			cadena += "no tiene fecha de fabricacion registrada" + "\n";
 		}
 
 		if (fechaUltimaVTV != null) {
-			System.out.print("fecha de ultima vtv: ");
-			this.fechaUltimaVTV.mostrar();
+			cadena += "fecha de ultima vtv: ";
+			cadena += this.fechaUltimaVTV + "\n";
 		} else {
-			System.out.println("no tiene fecha de vtv registrada");
+			cadena += "no tiene fecha de vtv registrada";
 		}
+
+		return cadena;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
 	}
 
 }
